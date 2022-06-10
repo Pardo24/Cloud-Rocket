@@ -1,5 +1,5 @@
 const img = new Image();
- img.src = '../img/background.jpg';
+ img.src = '../img/background.png';
 
 let canvas, ctx, mainCanvas, mainCtx;
 
@@ -16,14 +16,11 @@ img.onload = function() {
   updateBackgroundCanvas()
 };
 
-
-
-
 const backgroundImage = {
   img: img,
   x:0,
   y:0,
-  speed: -1,
+  speed: 0.2,
 
   move: function() {
     this.y += this.speed;
@@ -44,7 +41,7 @@ function renderMainCanvas() {
   mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
   mainCtx.fillStyle = "black";
   mainCtx.font = "50px monospace";
-  mainCtx.fillText('Ironhackers', 100, 200);
+  mainCtx.fillText('Rocket Launch', 100, 200);
 }
 
 function updateBackgroundCanvas() {

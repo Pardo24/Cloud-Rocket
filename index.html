@@ -2,19 +2,41 @@
 <html lang="en">
 
     <head>
-        <title>RowRocket</title>
+        <title>Cloud Rocket</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="./styles/styles.css">
-
-        
-
     </head>
 
-    <body>
-        <canvas id="background-canvas" width="700" height="600"></canvas>
-        <canvas id="main-canvas" width="700" height="600"></canvas> <!--- anchura (width) real= 900px , height-- 600px-->
 
-        <script src="./data/pirateJoc.js"></script>
+    <body>
+        <div class="game-intro" id="game-menu" contentEditable="false">
+            <img src="./img/logo.png" class="logo-img"/>
+            <br />
+            <button id="start-btn">Launch</button>
+                <div class="divInstructions">
+                    <p>Use the <span class="redText">left</span>, <span class="redText">right</span>, <span class="redText">up</span>
+                    and <span class="redText">down</span> arrow to
+                    control the Rocket!</p>
+                </div>
+        </div>
+
+
+        <div id="game-board">
+            <div id="endScreen" style="display:none">
+              <h1>Game Over</h1>
+              <p>Your score was: <span id="score"></span></p>
+              <input id="restartButton" class="button" type="button" value="Refresh" />
+            </div>
+            <div id="placeHolderImg">
+            
+            <canvas id="background-canvas" width="700" height="600"></canvas>
+            <canvas id="main-canvas" width="700" height="600"></canvas> <!--- anchura (width) real= 900px , height-- 600px-->
+        </div>
+
+
+        <script src="./data/rocket.js"></script>
+        <script src="./data/index.js"></script>
+        <script src="./data/RocketGame.js"></script>
         <script src="./data/background.js"></script>
         <script src="./data/nubes.js"></script>
     </body>
