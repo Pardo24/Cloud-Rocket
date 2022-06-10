@@ -1,9 +1,9 @@
 window.onload = () => {
-    const placeHolderImage = document.getElementById("placeHolderImg");
+    const placeHolderImg = document.getElementById("placeHolderImg");
     placeHolderImg.style.display = "initial";
   
-    document.getElementById("start-button").onclick = () => {
-      const canvas = document.querySelector("#canvas");
+    document.getElementById("start-btn").onclick = () => {
+      const canvas = document.getElementById("main-canvas");
       const endGame = document.getElementById("endScreen");
       const scoreEndGame = document.getElementById("score");
       const restartButton = document.getElementById("restartButton");
@@ -12,7 +12,7 @@ window.onload = () => {
   
       placeHolderImg.style.display = "none";
   
-      raceCarApp.init(
+      rocketApp.init(
         canvas,
         endGame,
         scoreEndGame,
