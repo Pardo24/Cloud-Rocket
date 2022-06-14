@@ -1,0 +1,127 @@
+
+body {
+  text-align: center;
+  background-image: url(../img/space.gif);
+  background-size: contain;
+  background-position: right;
+}
+
+.game-intro {
+  float: center;
+  margin: 0% 150px 0 130px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 150px;
+  width: 400px;
+  padding: 10px;
+  background-color: white;
+  opacity: 0.93;
+  border-radius: 100px;
+}
+
+.title{
+  font-size: 2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  position:absolute;
+  margin: 200px 0px 0px 840px;
+  z-index: 1;
+
+}
+.divInstructions{
+  font-size: 18px;
+  font-family: Verdana;
+  color: rgb(0, 0, 0);
+  margin-top: 43%;
+  margin-left: 52%;
+  padding: 5%;
+  position:absolute;
+  border:1px solid rgb(62, 69, 26);
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: antiquewhite;
+  opacity: 0.9;
+
+}
+.logo-img {
+  width: 250px;
+  margin-bottom: 30px;
+
+}
+
+body button {
+  font-size: 30px;
+  background-color: #a1141b;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 50px;
+  cursor:pointer;
+  margin-bottom: 20px;
+}
+
+.button{
+  font-size: 30px;
+  background-color: #a0171e;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 50px;
+  cursor:pointer;
+  margin: 20px 0;
+}
+
+#game-board {
+    float: left;
+    padding: 20px 0px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#endScreen{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 300px;
+  background-color: rgb(253, 255, 206);
+  opacity: 0.8;
+  border: 1px solid black;
+  margin: 0 200px;
+}
+
+#canvas{
+  border:1px solid black;
+
+}
+
+#endScreen{
+  position: absolute;
+
+}
+
+.redText{
+ color:rgb(82, 123, 214);
+ font-weight: bolder;
+}
+
+#placeHolderImg{
+  width: 700px;
+  height: 700px;
+  position: absolute;
+  display: none;
+  background-image: url("./../img/Inicio.gif");
+  background-repeat: no-repeat;
+  background-size: 700px 700px;
+}
+
+
+
+/* Class preventing pointer events while moving */
+.noPointers{
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
