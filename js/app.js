@@ -81,6 +81,7 @@ const rocketApp = {
     if (this.framesCounter % 100 === 0) {
       this.createObstacle();
     }
+
     if(this.speed > 1.5 && this.framesCounter % 80 === 0){
       this.createObstacle()*this.speed;
     }
@@ -89,7 +90,7 @@ const rocketApp = {
       this.createPowerUp();
     }
     if (this.framesCounter % 2000===0){
-      this.speed+= 0.3
+      this.speed+= 0.2
     }
     if (this.framesCounter % 1500===0){
       this.createObstacle();
