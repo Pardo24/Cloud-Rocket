@@ -31,17 +31,17 @@ class Rocket {
   move() {
             //Ternarios para moverse a los lados
     (this.rocketPosition.x <= this.canvasSize.w - 80 && this.moveRight)
-      ? (this.rocketPosition.x += 3)
+      ? (this.rocketPosition.x += 4)
       : null;
     (this.rocketPosition.x >= 20 && this.moveLeft)
-      ? (this.rocketPosition.x -= 3)
+      ? (this.rocketPosition.x -= 4)
       : null;
             //Ternarios para moverse arriba y abajo
     (this.rocketPosition.y <= this.canvasSize.h - 90 && this.moveDown)
-      ? (this.rocketPosition.y += 2)
+      ? (this.rocketPosition.y += 3)
       : null;
     (this.rocketPosition.y >= 30 && this.moveUp)
-      ? (this.rocketPosition.y -= 4)
+      ? (this.rocketPosition.y -= 6)
       : null;
   }
 }
