@@ -5,7 +5,7 @@ const rocketApp = {
   framesCounter: 0,
   obstacles: [],
   powerUpArr: [],
-  speed: 0.3,
+  speed: 0.5,
   score: 0,
   y: 0,
 
@@ -79,13 +79,8 @@ const rocketApp = {
     this.framesCounter++;
 
     if (this.framesCounter % 100 === 0) {
-      this.createObstacle();
-    }
-
-    if(this.speed > 1.5 && this.framesCounter % 100 === 0){
       this.createObstacle()*this.speed;
     }
-
     if (this.framesCounter % 2000===0){
       this.createPowerUp();
     }
