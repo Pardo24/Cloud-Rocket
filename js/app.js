@@ -5,7 +5,7 @@ const rocketApp = {
   framesCounter: 0,
   obstacles: [],
   powerUpArr: [],
-  speed: 0.70,
+  speed: 0.90,
   score: 0,
   y: 0,
 
