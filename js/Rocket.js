@@ -12,6 +12,7 @@ class Rocket {
     this.moveRight = false;
     this.moveUp = false;
     this.moveDown = false;
+    this.gravity= true
     this.image = new Image();
     this.image.src = `img/rocket.png`;
   }
@@ -31,17 +32,19 @@ class Rocket {
   move() {
             //Ternarios para moverse a los lados
     (this.rocketPosition.x <= this.canvasSize.w - 80 && this.moveRight)
-      ? (this.rocketPosition.x += 5)
+      ? (this.rocketPosition.x += 3)
       : null;
     (this.rocketPosition.x >= 20 && this.moveLeft)
-      ? (this.rocketPosition.x -= 5)
+      ? (this.rocketPosition.x -= 3)
       : null;
             //Ternarios para moverse arriba y abajo
     (this.rocketPosition.y <= this.canvasSize.h - 90 && this.moveDown)
-      ? (this.rocketPosition.y += 4)
+      ? (this.rocketPosition.y += 2)
       : null;
     (this.rocketPosition.y >= 30 && this.moveUp)
-      ? (this.rocketPosition.y -= 7)
+      ? (this.rocketPosition.y -= 4)
       : null;
+    (this.rocketPosition.y<= this.canvasSize.h - 90 && !this.moveUp) 
+    ? (this.rocketPosition.y +=1.5) : null;
   }
 }

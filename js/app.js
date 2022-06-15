@@ -5,7 +5,7 @@ const rocketApp = {
   framesCounter: 0,
   obstacles: [],
   powerUpArr: [],
-  speed: 1.8,
+  speed: 0.6,
   score: 0,
   y: 0,
 
@@ -81,11 +81,18 @@ const rocketApp = {
     if (this.framesCounter % 100 === 0) {
       this.createObstacle();
     }
+    if(this.speed > 1.5 && this.framesCounter % 80 === 0){
+      this.createObstacle()*this.speed;
+    }
+
     if (this.framesCounter % 2000===0){
       this.createPowerUp();
     }
-    if (this.framesCounter % 3000===0){
-      this.speed+=0.6
+    if (this.framesCounter % 2000===0){
+      this.speed+= 0.3
+    }
+    if (this.framesCounter % 1500===0){
+      this.createObstacle();
     }
   },
 
@@ -204,7 +211,7 @@ const rocketApp = {
   },
 
   moveBackground() {
-    this.y += this.speed*0.8;
+    this.y += this.speed*0.7;
     this.y %= this.canvasSize.h;
   },
 
@@ -266,7 +273,7 @@ const rocketApp = {
   },
 
   powerUp(){
-this.score+=2000
+this.score+=5000
 this.powerUpArr.pop();
 this.obstacles.pop();
 this.obstacles.pop();
