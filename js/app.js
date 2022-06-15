@@ -85,7 +85,7 @@ const rocketApp = {
       this.createPowerUp();
     }
     if (this.framesCounter % 3000===0){
-      this.speed+=0.3
+      this.speed+=0.6
     }
   },
 
