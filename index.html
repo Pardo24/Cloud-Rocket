@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./styles/style.css" />
   <audio src="sounds/antitaxi.mp3" id="backgroundMusic"></audio>
   <audio src="sounds/ignition.mp3" id="startingSound"></audio>
-  <audio src=""></audio>
+  <audio src="sounds/powerUp.mp3" id="powerUp"></audio>
   <title>Cloud Rocket</title>
 </head>
 
@@ -28,7 +28,8 @@
   <div id="game-board">
     <div id="endScreen" style="display:none">
       <h1>Game Over</h1>
-      <p>Your score was: <span id="score"></span></p>
+      <p>Your score was: <span id="score"></span><br><br>
+      Level reached: <span id="level"></span></p>
       <input id="restartButton" class="button" type="button" value="Refresh" />
     </div>
     <div id="placeHolderImg">

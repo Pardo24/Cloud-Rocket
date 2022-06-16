@@ -10,7 +10,7 @@ const rocketApp = {
   y: 0,
   level: 0,
 
-  init(canvas, endgame, scoreEnd, buttonRestart, audio, audio2) {
+  init(canvas, endgame, scoreEnd, endLvl, buttonRestart, audio, audio2, audio3) {
     this.setContext(canvas);
     this.setCanvasDimensions(canvas);
     this.playStartingSound(audio2);
@@ -18,8 +18,10 @@ const rocketApp = {
     this.imageBackground.src = "img/background.jpg";
     this.endgame = endgame;
     this.scoreEnd = scoreEnd;
+    this.endLvl = endLvl
     this.buttonRestart = buttonRestart;
     this.createNewRocket();
+    this.audio3= audio3
 
 
     setTimeout(() => {
@@ -87,7 +89,7 @@ const rocketApp = {
       this.createObstacle();
     }
 
-    else if(5<this.level && this.framesCounter % 60===0 ){
+    else if(5<this.level && this.framesCounter % 50===0 ){
       this.createObstacle();
     }
 
@@ -95,6 +97,7 @@ const rocketApp = {
       this.speed+= 0.2;
       this.level+=1;
       this.createPowerUp();
+      this.levelUp();
     }
   },
 
@@ -124,10 +127,13 @@ const rocketApp = {
     this.moveBackground();
     this.newRocket.drawRocket();
     this.powerUpArr.forEach((pow)=> pow.draw());
+
     for(let i = 0; i<this.obstacles.length; i++){
-      this.obstacles[i].draw()
+      this.obstacles[i].draw();
     }
     this.showScores();
+    this.showLevel();
+
   },
 
   createObstacle() {
@@ -170,20 +176,7 @@ const rocketApp = {
     this.powerUpArr.push(newPowerUp);
   },
 
-  // createAnimal() {
-  // 	//const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
-  // 	//const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
-  // 	const randomWidth = 80;
-  // 	const randomHeight = 100;
-  // 	const xRandomPosition = Math.trunc(Math.random() * (this.canvasSize.w - 100));
-
-  // 	const newAnimal = new Animal(this.ctx, randomWidth, randomHeight, this.canvasSize, xRandomPosition, this.speed);
-
-  // 	this.animals.push(newAnimal);
-  // },
-
   drawBackground() {
-    //this.ctx.drawImage(this.imageBackground, 0, 0, this.canvasSize.w, this.canvasSize.h);
 
     this.ctx.drawImage(
       this.imageBackground,
@@ -219,6 +212,13 @@ const rocketApp = {
 
   clearCanvas() {
     this.ctx.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h);
+  },
+
+  showLevel() {
+    // show level
+    this.ctx.font = "35px Verdana";
+    this.ctx.fillStyle = "yellow";
+    this.ctx.fillText("Level " + this.level, 550, 90);
   },
 
   showScores() {
@@ -273,6 +273,11 @@ const rocketApp = {
       });
     }
   },
+  playPowerUp(audio3) {
+    this.audio3 = audio3;
+    this.audio3.src = "../sounds/powerUp.mp3";
+    this.audio3.play();
+  },
 
   powerUp(){
 this.score+=5000
@@ -280,12 +285,14 @@ this.powerUpArr.pop();
 this.obstacles.pop();
 this.obstacles.pop();
 this.obstacles.pop();
+this.playPowerUp(this.audio3);
 },
 
   stopGame() {
     window.cancelAnimationFrame(this.intervalId);
     this.endgame.style.display = "initial";
     this.scoreEnd.innerHTML = this.score;
+    this.endLvl.innerHTML = this.level
 
     //Hacer un refresh
     this.buttonRestart.setAttribute("onclick", "window.location.reload()");
