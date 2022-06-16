@@ -18,7 +18,7 @@ class Rocket {
   }
 
   drawRocket() {
-    //Primer parametro Image, posicion X, posicion Y, dimension coche W, dimension coche H
+
     this.ctx.drawImage(
       this.image,
       this.rocketPosition.x,
@@ -26,7 +26,6 @@ class Rocket {
       this.rocketSize.w,
       this.rocketSize.h
     );
-    //console.log(this.ctx.drawImage(this.carImage, 20, 10, this.width, this.height));
   }
 
   move() {
@@ -44,7 +43,7 @@ class Rocket {
     (this.rocketPosition.y >= 30 && this.moveUp)
       ? (this.rocketPosition.y -= 3.5)
       : null;
-    (this.rocketPosition.y<= this.canvasSize.h - 90 && !this.moveUp) 
+    (this.rocketPosition.y<= this.canvasSize.h - 90 && !this.moveUp) //ternario para simular la gravedad del cohete
     ? (this.rocketPosition.y +=1) : null;
   }
 }

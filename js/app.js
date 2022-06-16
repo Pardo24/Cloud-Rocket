@@ -10,7 +10,7 @@ const rocketApp = {
   y: 0,
   level: 0,
 
-  init(canvas, endgame, scoreEnd, endLvl, buttonRestart, audio, audio2, audio3) {
+  init(canvas, endgame, scoreEnd, endLvl, buttonRestart, audio, audio2, audio3, audio4) {
     this.setContext(canvas);
     this.setCanvasDimensions(canvas);
     this.playStartingSound(audio2);
@@ -22,13 +22,14 @@ const rocketApp = {
     this.buttonRestart = buttonRestart;
     this.createNewRocket();
     this.audio3= audio3
+    this.audio4= audio4
 
 
     setTimeout(() => {
       this.playBackgroundSong(audio, audio2);
     }, 1500);
 
-    //Que el coche se mueva
+    //Que el cohete se mueva
     this.setListeners();
     this.refreshScreen();
   },
@@ -129,16 +130,15 @@ const rocketApp = {
     this.powerUpArr.forEach((pow)=> pow.draw());
 
     for(let i = 0; i<this.obstacles.length; i++){
-      this.obstacles[i].draw();
-    }
+      this.obstacles[i].draw();}
+
     this.showScores();
     this.showLevel();
 
   },
 
   createObstacle() {
-    //const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
-    //const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
+
     const randomWidth = 90;
     const randomHeight = 80;
     const xRandomPosition = Math.trunc(
@@ -288,16 +288,22 @@ this.obstacles.pop();
 this.playPowerUp(this.audio3);
 },
 
+playGameOver(audio4) {
+  this.audio4 = audio4;
+  this.audio4.src = "../sounds/gameOver.mp3";
+  this.audio4.play();
+},
+
   stopGame() {
     window.cancelAnimationFrame(this.intervalId);
     this.endgame.style.display = "initial";
     this.scoreEnd.innerHTML = this.score;
     this.endLvl.innerHTML = this.level
-
     //Hacer un refresh
     this.buttonRestart.setAttribute("onclick", "window.location.reload()");
     //llamamos a parar el audio
-    this.audioPause()
+    this.audioPause();
+    this.playGameOver(this.audio4);
     //Limpiamos el score ya que lo mostramos por pantalla al finalizar
     this.stopScore();
   },

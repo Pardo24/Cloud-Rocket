@@ -13,6 +13,7 @@ window.onload = () => {
     const audio = document.getElementById("backgroundMusic");
     const audio2 = document.getElementById("startingSound");
     const audio3 = document.getElementById("powerUp");
+    const audio4 = document.getElementById("gameOver");
 
     placeHolderImage.style.display = "none";
     gameMenu.style.display = "none";
@@ -25,7 +26,8 @@ window.onload = () => {
       restartButton,
       audio,
       audio2,
-      audio3
+      audio3,
+      audio4
     );
   };
 };
