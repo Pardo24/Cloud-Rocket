@@ -5,9 +5,10 @@ const rocketApp = {
   framesCounter: 0,
   obstacles: [],
   powerUpArr: [],
-  speed: 0.5,
+  speed: 0.6,
   score: 0,
   y: 0,
+  level: 0,
 
   init(canvas, endgame, scoreEnd, buttonRestart, audio, audio2) {
     this.setContext(canvas);
@@ -77,18 +78,23 @@ const rocketApp = {
     this.newRocket.move();
 
     this.framesCounter++;
+    
+    if (this.level <= 3 && this.framesCounter % 100 === 0  ) {
+      this.createObstacle();
+    }
 
-    if (this.framesCounter % 100 === 0) {
+    else if(3<this.level && this.framesCounter % 60===0 ){
       this.createObstacle();
     }
+
+    else if(5<this.level && this.framesCounter % 60===0 ){
+      this.createObstacle();
+    }
+
     if (this.framesCounter % 2000===0){
+      this.speed+= 0.2;
+      this.level+=1;
       this.createPowerUp();
-    }
-    if (this.framesCounter % 2000===0){
-      this.speed+= 0.2
-    }
-    if (this.framesCounter % 1500===0){
-      this.createObstacle();
     }
   },
 
