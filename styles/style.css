@@ -20,13 +20,13 @@ body {
 }
 
 .title{
-  font-size: 2em;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: white;
   position:absolute;
-  margin: 200px 0px 0px 840px;
+  margin: 200px 0px 0px 800px;
   z-index: 1;
+}
 
+#suso{
+  width: 600px;
 }
 .divInstructions{
   font-size: 18px;
