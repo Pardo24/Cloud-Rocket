@@ -90,10 +90,6 @@ const rocketApp = {
       this.createObstacle();
     }
 
-    else if(5<this.level && this.framesCounter % 50===0 ){
-      this.createObstacle();
-    }
-
     if (this.framesCounter % 2000===0){
       this.speed+= 0.2;
       this.level+=1;
