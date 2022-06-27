@@ -86,7 +86,7 @@ const rocketApp = {
       this.createObstacle();
     }
 
-    else if(3<this.level && this.framesCounter % 60===0 ){
+    else if(3<this.level && this.framesCounter % 70===0 ){
       this.createObstacle();
     }
 
